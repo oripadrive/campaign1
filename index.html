@@ -1,0 +1,389 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>OripaDrive 招待キャンペーン</title>
+  <style>
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Hiragino Sans", "Hiragino Kaku Gothic ProN", "Yu Gothic", sans-serif;
+      background: #f5f6f8;
+      color: #111;
+      line-height: 1.8;
+    }
+
+    .container {
+      max-width: 860px;
+      margin: 0 auto;
+      padding: 24px 16px 56px;
+    }
+
+    .card {
+      background: #fff;
+      border-radius: 24px;
+      padding: 28px;
+      box-shadow: 0 8px 24px rgba(0,0,0,0.06);
+      margin-bottom: 20px;
+    }
+
+    .hero {
+      background: linear-gradient(135deg, #7a0000 0%, #c40000 45%, #ff6a00 100%);
+      color: #fff;
+      border-radius: 28px;
+      padding: 32px 28px;
+      box-shadow: 0 12px 28px rgba(130, 0, 0, 0.25);
+    }
+
+    .hero h1 {
+      margin: 0 0 12px;
+      font-size: 34px;
+      line-height: 1.35;
+    }
+
+    .hero p {
+      margin: 0;
+      font-size: 17px;
+      color: rgba(255,255,255,0.92);
+    }
+
+    h2 {
+      margin: 0 0 16px;
+      font-size: 28px;
+      line-height: 1.4;
+    }
+
+    p { margin: 0 0 16px; }
+
+    .lead {
+      font-size: 18px;
+      color: #222;
+    }
+
+    .highlight {
+      font-weight: 800;
+      color: #b40000;
+    }
+
+    .section-title {
+      display: inline-block;
+      margin-bottom: 14px;
+      padding: 8px 14px;
+      border-radius: 999px;
+      background: #eef2ff;
+      color: #304bd4;
+      font-size: 14px;
+      font-weight: 800;
+      letter-spacing: 0.02em;
+    }
+
+    .image-frame {
+      margin: 12px auto;
+      border-radius: 20px;
+      overflow: hidden;
+      background: #fff;
+      box-shadow: 0 6px 18px rgba(0,0,0,0.06);
+      border: 1px solid #e5e7eb;
+      max-width: 360px;
+    }
+
+    .content-image {
+      display: block;
+      width: 100%;
+      height: auto;
+    }
+
+    .note {
+      margin-top: 8px;
+      color: #333;
+    }
+
+    .invite-flow {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) 28px minmax(0, 1fr);
+      gap: 4px;
+      align-items: center;
+      justify-items: center;
+      margin: 14px 0 22px;
+    }
+
+    .flow-step {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      min-width: 0;
+      width: 100%;
+    }
+
+    .invite-flow .image-frame {
+      max-width: 190px;
+      width: 100%;
+      margin: 0 auto;
+    }
+
+    .flow-arrow {
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 28px;
+      height: 110px;
+      justify-self: center;
+    }
+
+    .flow-arrow::before {
+      content: "";
+      position: absolute;
+      top: 50%;
+      left: 2px;
+      right: 10px;
+      height: 3px;
+      border-radius: 999px;
+      background: linear-gradient(90deg, #cfd6ff 0%, #5e63ff 100%);
+      transform: translateY(-50%);
+      box-shadow: 0 2px 8px rgba(61, 71, 214, 0.18);
+    }
+
+    .flow-arrow::after {
+      content: "";
+      position: absolute;
+      top: 50%;
+      right: 2px;
+      width: 12px;
+      height: 12px;
+      border-top: 3px solid #4a54e8;
+      border-right: 3px solid #4a54e8;
+      transform: translateY(-50%) rotate(45deg);
+      border-radius: 2px;
+    }
+
+    .flow-caption {
+      margin: 10px 0 0;
+      text-align: center;
+      font-size: 15px;
+      line-height: 1.6;
+      font-weight: 800;
+      color: #1d2433;
+    }
+
+    .tips-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 14px;
+      margin-top: 18px;
+    }
+
+    .tip-card {
+      border-radius: 20px;
+      background: linear-gradient(180deg, #ffffff 0%, #f7f8fb 100%);
+      border: 1px solid #e5e7eb;
+      box-shadow: 0 6px 18px rgba(0,0,0,0.05);
+      padding: 16px;
+    }
+
+    .tip-head {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      margin-bottom: 10px;
+      padding: 6px 10px;
+      border-radius: 999px;
+      background: #eef2ff;
+      color: #304bd4;
+      font-size: 13px;
+      font-weight: 800;
+    }
+
+    .tip-icon {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 20px;
+      height: 20px;
+      border-radius: 999px;
+      background: #304bd4;
+      color: #fff;
+      font-size: 12px;
+      line-height: 1;
+    }
+
+    .tip-card p {
+      margin: 0;
+      font-size: 14px;
+      line-height: 1.75;
+      color: #2f3440;
+    }
+
+    ul {
+      margin: 0;
+      padding-left: 1.2em;
+    }
+
+    li { margin-bottom: 10px; }
+
+    @media (max-width: 640px) {
+      .container {
+        padding: 16px 12px 40px;
+      }
+
+      .card,
+      .hero {
+        padding: 22px 18px;
+      }
+
+      .hero h1 {
+        font-size: 28px;
+      }
+
+      h2 {
+        font-size: 24px;
+      }
+
+      .lead {
+        font-size: 16px;
+      }
+
+      .image-frame {
+        max-width: 300px;
+      }
+
+      .invite-flow {
+        grid-template-columns: minmax(0, 1fr) 22px minmax(0, 1fr);
+        gap: 2px;
+      }
+
+      .invite-flow .image-frame {
+        max-width: 132px;
+      }
+
+      .flow-arrow {
+        width: 22px;
+        height: 88px;
+      }
+
+      .flow-arrow::before {
+        left: 1px;
+        right: 8px;
+        height: 2px;
+      }
+
+      .flow-arrow::after {
+        right: 1px;
+        width: 9px;
+        height: 9px;
+        border-top: 2px solid #4a54e8;
+        border-right: 2px solid #4a54e8;
+      }
+
+      .flow-caption {
+        font-size: 12px;
+        line-height: 1.5;
+      }
+
+      .tips-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <section class="hero">
+      <h1>友達を招待して、OripaDriveで使えるコインをゲットしよう！</h1>
+      <p>
+        まだOripaDriveを利用していない友達を招待し、その方があなたの招待コードを使って登録・利用すると、
+        <span class="highlight" style="color:#fff;">招待した人・招待された人の両方に最大300コイン</span>が付与されます。
+      </p>
+    </section>
+
+    <section class="card">
+      <p class="lead">
+        あなたの招待コードは、<strong>ログイン後のマイページ</strong>で確認できます。
+      </p>
+
+      <div class="image-frame">
+        <img src="1.jpg" alt="OripaDriveのマイページに表示された招待コード画面" class="content-image" />
+      </div>
+    </section>
+
+    <section class="card">
+      <span class="section-title">コインの獲得方法</span>
+
+      <h2>1. OripaDriveを友達・家族・フォロワーに紹介しよう</h2>
+      <p>
+        まだOripaDriveを始めていない方にサービスを紹介し、アプリまたはサイトを利用開始してもらいましょう。
+      </p>
+      <p>
+        マイページ内の<strong>「招待コードをシェア」</strong>ボタンを押すことで、アプリストアURLや招待コードをまとめて共有できます。
+      </p>
+
+      <p class="note">
+        招待コードが正しく入力されていない場合、特典が反映されないことがあります。
+        コードは手入力ではなく、アプリ内の<strong>「コピー」</strong>または<strong>「シェア」</strong>機能の利用をおすすめします。
+      </p>
+
+      <h2 style="margin-top: 28px;">2. あなたの招待コードを入力してもらおう</h2>
+      <p>
+        OripaDriveを起動し、<strong>「新規登録」</strong>から会員登録を進める際に、招待コードを入力してもらってください。
+      </p>
+
+      <div class="invite-flow">
+        <div class="flow-step">
+          <div class="image-frame">
+            <img src="2.jpg" alt="OripaDriveのオリパ一覧画面" class="content-image" />
+          </div>
+          <p class="flow-caption">①【新規登録】をタップ</p>
+        </div>
+
+        <div class="flow-arrow" aria-hidden="true"></div>
+
+        <div class="flow-step">
+          <div class="image-frame">
+            <img src="3.jpg" alt="OripaDriveの新規登録と招待コード入力画面" class="content-image" />
+          </div>
+          <p class="flow-caption">②招待コードを入力してから新規登録</p>
+        </div>
+      </div>
+
+      <div class="tips-grid">
+        <div class="tip-card">
+          <div class="tip-head"><span class="tip-icon">!</span>登録時のみ</div>
+          <p>
+            招待コードを入力できるのは<strong>会員登録時のみ</strong>です。登録完了後にあとから入力・適用することはできませんので、ご注意ください。
+          </p>
+        </div>
+
+        <div class="tip-card">
+          <div class="tip-head"><span class="tip-icon">+</span>招待人数</div>
+          <p>
+            招待できる人数には上限があります。上限人数はキャンペーン内容に応じて変更される場合があります。
+          </p>
+        </div>
+
+        <div class="tip-card">
+          <div class="tip-head"><span class="tip-icon">⏰</span>入力期限</div>
+          <p>
+            招待コードは、<strong>新規登録後の一定期間内</strong>に入力が必要です。期限を過ぎた場合は適用対象外となることがあります。
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section class="card">
+      <span class="section-title">注意事項・利用規約</span>
+      <ul>
+        <li>招待キャンペーンの内容、付与条件、報酬の内容は、予告なく変更または終了する場合があります。</li>
+        <li>不正なメールアドレスの利用、複数アカウントの作成、そのほか当社が不適切と判断する行為が確認された場合、特典の無効化やサービス利用停止などの対応を行うことがあります。</li>
+        <li>特典の換金、譲渡、返品、再発行には対応いたしかねます。</li>
+        <li>本キャンペーンに関連して利用者に生じた損害について、当社に故意または重大な過失がある場合を除き、当社は責任を負いません。</li>
+        <li>本キャンペーンへの参加に関して、利用者と第三者との間でトラブルや紛争が発生した場合は、当該利用者ご自身の責任と費用で解決するものとし、当社は一切責任を負いません。</li>
+        <li>本キャンペーンは当社が独自に実施するものであり、Apple Inc.、Google LLC、その他各プラットフォーム運営会社とは関係ありません。</li>
+        <li>本キャンペーンに関するお問い合わせは、OripaDriveのサポート窓口までお願いいたします。</li>
+        <li>本規約の解釈および適用については日本法を準拠法とし、本キャンペーンに関して紛争が生じた場合は、東京地方裁判所または東京簡易裁判所を第一審の専属的合意管轄裁判所とします。</li>
+      </ul>
+    </section>
+  </div>
+</body>
+</html>
